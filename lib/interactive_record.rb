@@ -54,8 +54,8 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute)
-     vals = attribute.map{ |a, b|  a }
-     atts = attribute.map{ |a, b|  b }
+     vals = attribute.map{ |a, b|  a.to_s }
+     atts = attribute.map{ |a, b|  b.to_s }
      sql = "SELECT * FROM #{self.table_name} WHERE #{vals} = '#{atts}'"
      binding.pry
      DB[:conn].execute(sql)
