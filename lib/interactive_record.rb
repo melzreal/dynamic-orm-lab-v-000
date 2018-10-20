@@ -54,10 +54,7 @@ class InteractiveRecord
   end
 
     def self.find_by(attribute)
-    vals = attribute.each do |a, b|
-              attr = a
-              val = b
-           end
+    vals = attribute.each{ |a, b|  a, b }
       sql = "SELECT * FROM #{self.table_name} WHERE #{vals[0]} = '#{vals[1]}'"
       DB[:conn].execute(sql)
 
