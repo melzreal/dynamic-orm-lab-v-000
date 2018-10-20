@@ -53,9 +53,11 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-    def self.find_by(attribute)
-    vals = attribute.each{ |a, b|  a, b }
-      sql = "SELECT * FROM #{self.table_name} WHERE #{vals[0]} = '#{vals[1]}'"
+  def self.find_by(attribute)
+     vals = attribute.map{ |a, b|  a }
+     atts = attribute.map{ |a, b|  b }
+
+      sql = "SELECT * FROM #{self.table_name} WHERE #{vals} = '#{atts}'"
       DB[:conn].execute(sql)
       binding.pry
     end
