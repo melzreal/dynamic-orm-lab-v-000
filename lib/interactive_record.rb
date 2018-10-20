@@ -59,7 +59,7 @@ class InteractiveRecord
      sql = "SELECT * FROM #{self.table_name} WHERE #{vals} = '#{atts}'"
      binding.pry
      DB[:conn].execute(sql)
-      
+
   end
 
 end
