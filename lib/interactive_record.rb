@@ -59,6 +59,7 @@ class InteractiveRecord
         val = b
         sql = "SELECT * FROM #{self.class.table_name} WHERE #{attr} = '#{b}'"
         DB[:conn].execute(sql)
+        binding.pry
       end
     end
 
